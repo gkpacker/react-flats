@@ -2,22 +2,20 @@ import React from 'react';
 
 import Flat from './flat';
 
-const FlatList = ({ flats }) => {
-  return(
-    flats.map(({ name, imageUrl, lat, lng, priceCurrency, price }) => {
-      return(
+const FlatList = ({ flats, selectFlat, selectedFlat }) => {
+  return (
+    flats.map((flat, index) => {
+      return (
         <Flat
-          name={name}
-          key={name}
-          imageUrl={imageUrl}
-          lat={lat}
-          lng={lng}
-          priceCurrency={priceCurrency}
-          price={price}
+          flat={flat}
+          key={flat.lat}
+          selectFlat={selectFlat}
+          index={index}
+          selected={selectedFlat.name === flat.name}
         />
       );
     })
   );
-}
+};
 
 export default FlatList;
